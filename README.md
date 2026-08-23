@@ -1,6 +1,6 @@
-# ActorTerm Site
+# Actor Site
 
-Static website for the ActorTerm macOS terminal.
+Static website for the Actor macOS terminal.
 
 ## Local Development
 

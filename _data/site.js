@@ -1,5 +1,5 @@
 module.exports = {
-  title: "ActorTerm",
+  title: "Actor",
   description: "A Ghostty-powered terminal for macOS, with a hierarchical sidebar. Native, lightweight, no setup.",
   url: "https://actorterm.com",
   repo: "https://github.com/Stillmake/ActorApp",

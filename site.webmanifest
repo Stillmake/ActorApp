@@ -1,6 +1,6 @@
 {
-  "name": "ActorTerm",
-  "short_name": "ActorTerm",
+  "name": "Actor",
+  "short_name": "Actor",
   "description": "A Ghostty-powered terminal for macOS, with a hierarchical sidebar.",
   "start_url": "/",
   "display": "standalone",

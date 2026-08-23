@@ -7,7 +7,7 @@
       <div class="site-header-inner">
         <a class="site-brand" href="#top" aria-label="{{ site.title }} home">
           {% include "brand_mark.html", grad_id: "at-brand-header" %}
-          <span class="site-brand-name">{{ site.title }}</span>
+          <span class="site-brand-name" data-plain="{{ site.title }}" data-code="actor {{ site.title }} { isolate(complexity) }">{{ site.title }}</span>
         </a>
         {% assign latest = releases | where: "isDraft", false | first %}
         <a class="header-download" href="{{ site.release_url }}/latest" target="_blank" rel="noopener">
@@ -27,26 +27,82 @@
       (function () {
         var pill = document.querySelector(".header-download");
         var hero = document.querySelector(".hero") || document.querySelector("#top");
-        if (!pill || !hero || !("IntersectionObserver" in window)) return;
+        if (pill && hero && "IntersectionObserver" in window) {
+          var io = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                pill.classList.toggle("is-visible", !entry.isIntersecting);
+              });
+            },
+            { threshold: 0 }
+          );
+          io.observe(hero);
+          window.addEventListener("pagehide", function () { io.disconnect(); }, { once: true });
+        }
 
-        var io = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              pill.classList.toggle("is-visible", !entry.isIntersecting);
-            });
-          },
-          { threshold: 0 }
-        );
+        var name = document.querySelector(".site-brand-name");
+        var brand = document.querySelector(".site-brand");
+        if (!name || !brand) return;
 
-        io.observe(hero);
+        var plain = name.getAttribute("data-plain") || "Actor";
+        var code = name.getAttribute("data-code") || "actor Actor { isolate(complexity) }";
+        var glyphs = "actor{}()isolcmpxy 0123456789";
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+        var raf = 0;
+        var gen = 0;
 
-        window.addEventListener(
-          "pagehide",
-          function () {
-            io.disconnect();
-          },
-          { once: true }
-        );
+        function paintCode() {
+          name.classList.add("is-code");
+          name.innerHTML =
+            '<span class="swift-kw">actor</span> ' +
+            plain +
+            ' <span class="swift-rest">{ isolate(complexity) }</span>';
+        }
+
+        function paintPlain() {
+          name.classList.remove("is-code");
+          name.textContent = plain;
+        }
+
+        function scramble(to, ms, done) {
+          var my = ++gen;
+          cancelAnimationFrame(raf);
+          if (reduce) {
+            done();
+            return;
+          }
+          var start = performance.now();
+          var from = name.textContent;
+          var len = Math.max(from.length, to.length);
+          function frame(now) {
+            if (my !== gen) return;
+            var t = Math.min(1, (now - start) / ms);
+            var ease = 1 - Math.pow(1 - t, 3);
+            var locked = Math.floor(ease * to.length);
+            var out = to.slice(0, locked);
+            for (var i = locked; i < len; i++) {
+              out += i < to.length ? glyphs[(Math.random() * glyphs.length) | 0] : "";
+            }
+            name.textContent = out;
+            if (t < 1) raf = requestAnimationFrame(frame);
+            else done();
+          }
+          raf = requestAnimationFrame(frame);
+        }
+
+        if (!canHover) return;
+
+        brand.addEventListener("mouseenter", function () {
+          name.classList.add("is-code");
+          scramble(code, 420, function () {
+            if (name.classList.contains("is-code")) paintCode();
+          });
+        });
+
+        brand.addEventListener("mouseleave", function () {
+          scramble(plain, 260, paintPlain);
+        });
       })();
     </script>
   </body>

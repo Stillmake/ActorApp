@@ -44,7 +44,24 @@
 }
 
 .site-brand-name {
+  display: inline-block;
+  line-height: 1;
   letter-spacing: -0.01em;
+  font-variant-ligatures: none;
+
+  &.is-code {
+    font-family: $font-mono;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+}
+
+.swift-kw {
+  color: $accent-ink;
+}
+
+.swift-rest {
+  color: $text-faint;
 }
 
 /* Header download pill — CTA revealed once the hero scrolls out of view.

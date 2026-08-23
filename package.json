@@ -2,7 +2,7 @@
   "name": "actorterm",
   "version": "1.0.0",
   "private": true,
-  "description": "ActorTerm static website",
+  "description": "Actor static website",
   "scripts": {
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "build:css": "sass --load-path=_sass assets/main.scss dist/assets/main.css --style=compressed --no-source-map",
