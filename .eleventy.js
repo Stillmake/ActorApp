@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
     (path) => eleventyConfig.addPassthroughCopy(path)
   );
   eleventyConfig.addPassthroughCopy({ "assets/app.jpg": "assets/app.jpg" });
+  eleventyConfig.addPassthroughCopy({ "assets/og.jpg": "assets/og.jpg" });
 
   eleventyConfig.addFilter("json_escape", (value) =>
     JSON.stringify(String(value ?? "")).slice(1, -1)
