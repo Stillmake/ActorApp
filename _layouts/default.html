@@ -2,13 +2,17 @@
 <html lang="{{ lang | default: site.lang }}">
   {% include "head.html" %}
   <body>
-    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="skip-link" href="#content">Skip to content</a>
     <header class="site-header">
       <div class="site-header-inner">
-        <a class="site-brand" href="#top" aria-label="{{ site.title }} home">
+        <div class="site-brand">
           {% include "brand_mark.html", grad_id: "at-brand-header" %}
-          <span class="site-brand-name" data-plain="{{ site.title }}" data-code="actor {{ site.title }} { isolate(complexity) }">{{ site.title }}</span>
-        </a>
+          <span class="site-brand-name">
+            <span class="swift-kw" style="--n:4" aria-hidden="true"><span class="swift-inner"><span class="ch" style="--i:4">a</span><span class="ch" style="--i:3">c</span><span class="ch" style="--i:2">t</span><span class="ch" style="--i:1">o</span><span class="ch" style="--i:0">r</span></span></span>
+            <span class="brand-core"><span class="ch" style="--i:0">A</span><span class="ch" style="--i:1">c</span><span class="ch" style="--i:2">t</span><span class="ch" style="--i:3">o</span><span class="ch" style="--i:4">r</span></span>
+            <span class="swift-rest" style="--n:21" aria-hidden="true"><span class="swift-inner"><span class="ch" style="--i:0">{</span><span class="ch" style="--i:1"> </span><span class="ch" style="--i:2">i</span><span class="ch" style="--i:3">s</span><span class="ch" style="--i:4">o</span><span class="ch" style="--i:5">l</span><span class="ch" style="--i:6">a</span><span class="ch" style="--i:7">t</span><span class="ch" style="--i:8">e</span><span class="ch" style="--i:9">(</span><span class="ch" style="--i:10">c</span><span class="ch" style="--i:11">o</span><span class="ch" style="--i:12">m</span><span class="ch" style="--i:13">p</span><span class="ch" style="--i:14">l</span><span class="ch" style="--i:15">e</span><span class="ch" style="--i:16">x</span><span class="ch" style="--i:17">i</span><span class="ch" style="--i:18">t</span><span class="ch" style="--i:19">y</span><span class="ch" style="--i:20">)</span><span class="ch" style="--i:21">}</span></span></span>
+          </span>
+        </div>
         {% assign latest = releases | where: "isDraft", false | first %}
         <a class="header-download" href="{{ site.release_url }}/latest" target="_blank" rel="noopener">
           <span class="header-download-label">Download</span>
@@ -17,7 +21,7 @@
       </div>
     </header>
 
-    <main id="top">
+    <main id="content">
       {{ content }}
     </main>
 
@@ -26,7 +30,7 @@
     <script>
       (function () {
         var pill = document.querySelector(".header-download");
-        var hero = document.querySelector(".hero") || document.querySelector("#top");
+        var hero = document.querySelector(".hero") || document.querySelector("#content");
         if (pill && hero && "IntersectionObserver" in window) {
           var io = new IntersectionObserver(
             function (entries) {
@@ -39,70 +43,6 @@
           io.observe(hero);
           window.addEventListener("pagehide", function () { io.disconnect(); }, { once: true });
         }
-
-        var name = document.querySelector(".site-brand-name");
-        var brand = document.querySelector(".site-brand");
-        if (!name || !brand) return;
-
-        var plain = name.getAttribute("data-plain") || "Actor";
-        var code = name.getAttribute("data-code") || "actor Actor { isolate(complexity) }";
-        var glyphs = "actor{}()isolcmpxy 0123456789";
-        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-        var raf = 0;
-        var gen = 0;
-
-        function paintCode() {
-          name.classList.add("is-code");
-          name.innerHTML =
-            '<span class="swift-kw">actor</span> ' +
-            plain +
-            ' <span class="swift-rest">{ isolate(complexity) }</span>';
-        }
-
-        function paintPlain() {
-          name.classList.remove("is-code");
-          name.textContent = plain;
-        }
-
-        function scramble(to, ms, done) {
-          var my = ++gen;
-          cancelAnimationFrame(raf);
-          if (reduce) {
-            done();
-            return;
-          }
-          var start = performance.now();
-          var from = name.textContent;
-          var len = Math.max(from.length, to.length);
-          function frame(now) {
-            if (my !== gen) return;
-            var t = Math.min(1, (now - start) / ms);
-            var ease = 1 - Math.pow(1 - t, 3);
-            var locked = Math.floor(ease * to.length);
-            var out = to.slice(0, locked);
-            for (var i = locked; i < len; i++) {
-              out += i < to.length ? glyphs[(Math.random() * glyphs.length) | 0] : "";
-            }
-            name.textContent = out;
-            if (t < 1) raf = requestAnimationFrame(frame);
-            else done();
-          }
-          raf = requestAnimationFrame(frame);
-        }
-
-        if (!canHover) return;
-
-        brand.addEventListener("mouseenter", function () {
-          name.classList.add("is-code");
-          scramble(code, 420, function () {
-            if (name.classList.contains("is-code")) paintCode();
-          });
-        });
-
-        brand.addEventListener("mouseleave", function () {
-          scramble(plain, 260, paintPlain);
-        });
       })();
     </script>
   </body>

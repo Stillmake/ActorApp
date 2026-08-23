@@ -32,10 +32,11 @@
   align-items: center;
   gap: 10px;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 21px;
   color: $text-strong;
   letter-spacing: -0.01em;
   white-space: nowrap;
+  cursor: default;
 }
 
 .brand-mark {
@@ -44,24 +45,96 @@
 }
 
 .site-brand-name {
-  display: inline-block;
-  line-height: 1;
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1.25;
   letter-spacing: -0.01em;
-  font-variant-ligatures: none;
+  transform: translateY(1px);
+}
 
-  &.is-code {
-    font-family: $font-mono;
-    font-weight: 500;
-    letter-spacing: 0;
-  }
+.brand-core {
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+}
+
+.ch {
+  display: inline-block;
+  vertical-align: baseline;
+  white-space: pre;
+}
+
+.swift-kw,
+.swift-rest {
+  display: inline-flex;
+  align-items: baseline;
+  max-width: 0;
+  overflow: hidden;
+  font-family: $font-mono;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0;
+  font-variant-ligatures: none;
+  pointer-events: none;
+}
+
+.swift-inner {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+  padding-bottom: 0.18em;
 }
 
 .swift-kw {
+  justify-content: flex-end;
   color: $accent-ink;
+
+  .swift-inner {
+    padding-right: 0.4em;
+  }
 }
 
 .swift-rest {
+  justify-content: flex-start;
   color: $text-faint;
+
+  .swift-inner {
+    padding-left: 0.4em;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-brand:hover .swift-kw,
+  .site-brand:hover .swift-rest {
+    max-width: 24em;
+    transition-delay: 0ms;
+  }
+
+  .site-brand:hover .swift-kw .ch,
+  .site-brand:hover .swift-rest .ch {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(var(--i) * 14ms);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  $ease-expand: cubic-bezier(0.16, 1, 0.3, 1);
+
+  .swift-kw,
+  .swift-rest {
+    transition: max-width 320ms $ease-expand;
+    transition-delay: 180ms;
+  }
+
+  .swift-kw .ch,
+  .swift-rest .ch {
+    opacity: 0;
+    transform: translateY(0.2em);
+    transition:
+      opacity 240ms $ease-expand,
+      transform 280ms $ease-expand;
+    transition-delay: calc((var(--n) - var(--i)) * 14ms);
+  }
 }
 
 /* Header download pill — CTA revealed once the hero scrolls out of view.
