@@ -1,124 +1,15 @@
 [
   {
     "version": "1.0",
-    "build": 142,
+    "build": 158,
     "notes": [
       {
         "title": "New Features",
         "items": [
-          "Sidebar filter consolidation: Files and Diffs merged into a single Other filter — All / Sessions / Other / Need Attention",
-          "Copy File Name in the file tree and open-tabs sidebar context menus"
-        ]
-      },
-      {
-        "title": "Bug Fixes",
-        "items": [
-          "Foreground process detection falls back to the kernel pty process group, so Need Attention still works with libghostty-spm 1.4.0"
-        ]
-      }
-    ]
-  },
-  {
-    "version": "1.0",
-    "build": 136,
-    "notes": [
-      {
-        "title": "New Features",
-        "items": [
-          "Open Note command in the command palette jumps to the focused session's note"
-        ]
-      },
-      {
-        "title": "Bug Fixes",
-        "items": [
-          "Diamond marker only appears for sessions inside the working folder",
-          "Dismissing the command palette while editing a note restores focus to the note editor"
-        ]
-      }
-    ]
-  },
-  {
-    "version": "1.0",
-    "build": 130,
-    "notes": [
-      {
-        "title": "New Features",
-        "items": [
-          "Working-folder sessions show a diamond marker in the sidebar and editor tabs"
-        ]
-      }
-    ]
-  },
-  {
-    "version": "1.0",
-    "build": 129,
-    "notes": [
-      {
-        "title": "New Features",
-        "items": [
-          "Working Folder setting for the default startup directory",
-          "Rename Tab and Rename Tab Group from the command palette",
-          "pi agent icon in the sidebar"
-        ]
-      },
-      {
-        "title": "Improvements",
-        "items": [
-          "Inactive split cells are dimmed instead of ringed",
-          "Closing a noted session brings it forward and reveals the note first"
-        ]
-      },
-      {
-        "title": "Fixes",
-        "items": [
-          "Fixed a crash when pressing Cmd+Z right after switching tabs",
-          "Fixed terminal link opening for file://, web, and bare paths"
-        ]
-      }
-    ]
-  },
-  {
-    "version": "1.0",
-    "build": 121,
-    "notes": [
-      {
-        "title": "New Features",
-        "items": [
-          "Editor bottom status bar: path, Git branch, selection, line/column, and diff counts",
-          "Locate current selection in the sidebar when it is hidden",
-          "Info panel cards for files and diffs"
-        ]
-      },
-      {
-        "title": "Improvements",
-        "items": [
-          "Closing a noted session switches to the Info panel first",
-          "Trimmed command palette and menu items"
-        ]
-      }
-    ]
-  },
-  {
-    "version": "1.0",
-    "build": 113,
-    "notes": [
-      {
-        "title": "New Features",
-        "items": [
-          "Per-session notes: attach a note to any terminal session, auto-saved, restorable across restarts, and expandable/foldable from the Info panel"
-        ]
-      },
-      {
-        "title": "Improvements",
-        "items": [
-          "Tightened sidebar spacing and layout in the Info and Git panels",
-          "Removed the TTY metric"
-        ]
-      },
-      {
-        "title": "Fixes",
-        "items": [
-          "OpenCode detection also recognizes opencode.exe"
+          "Ghostty-powered terminal with hierarchical sidebar",
+          "Lightweight",
+          "Native macOS app",
+          "Zero config — works right out of the box"
         ]
       }
     ]
