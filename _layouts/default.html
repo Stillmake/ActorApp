@@ -2,10 +2,11 @@
 <html lang="{{ lang | default: site.lang }}">
   {% include "head.html" %}
   <body>
+    <a class="skip-link" href="#top">Skip to content</a>
     <header class="site-header">
       <div class="site-header-inner">
         <a class="site-brand" href="#top" aria-label="{{ site.title }} home">
-          {% include "brand_mark.html" %}
+          {% include "brand_mark.html", grad_id: "at-brand-header" %}
           <span class="site-brand-name">{{ site.title }}</span>
         </a>
         {% assign latest = releases | where: "isDraft", false | first %}

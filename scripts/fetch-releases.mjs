@@ -14,12 +14,18 @@ const list = JSON.parse(
 const releases = [];
 for (const r of list) {
   let body = "";
+  let dmgSize = null;
   try {
-    body = execFileSync(
-      "gh",
-      ["release", "view", r.tagName, "--repo", repo, "--json", "body", "--jq", ".body"],
-      { encoding: "utf8" }
+    const detail = JSON.parse(
+      execFileSync(
+        "gh",
+        ["release", "view", r.tagName, "--repo", repo, "--json", "body,assets"],
+        { encoding: "utf8" }
+      )
     );
+    body = detail.body ?? "";
+    const dmg = (detail.assets ?? []).find((asset) => asset.name?.endsWith(".dmg"));
+    if (dmg && Number.isFinite(dmg.size)) dmgSize = dmg.size;
   } catch {
     body = "";
   }
@@ -30,6 +36,7 @@ for (const r of list) {
     isDraft: r.isDraft,
     isPrerelease: r.isPrerelease,
     body,
+    dmgSize,
   });
 }
 

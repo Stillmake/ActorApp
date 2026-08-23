@@ -5,6 +5,7 @@
     "publishedAt": "2026-08-23T11:20:50Z",
     "isDraft": false,
     "isPrerelease": false,
+    "dmgSize": 11246491,
     "body": "Release 1.0(158)\n\nCommit: 96e56fb\n\n### New Features\n\n- Ghostty-powered terminal with hierarchical sidebar\n- Lightweight\n- Native macOS app\n- Zero config — works right out of the box\n\n"
   }
 ]

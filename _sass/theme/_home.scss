@@ -1,6 +1,6 @@
 @use "core" as *;
 
-/* Anchor target offset for the sticky light bar. */
+/* Anchor target offset for the sticky header. */
 section[id],
 footer[id] {
   scroll-margin-top: 88px;
@@ -16,7 +16,7 @@ footer[id] {
   }
 }
 
-/* ---------- Buttons (Apple treatment, press scale 0.97) ---------- */
+/* ---------- Buttons ---------- */
 
 .btn {
   display: inline-flex;
@@ -39,10 +39,6 @@ footer[id] {
   }
 }
 
-/* Primary pill — near-black (light) / near-white (dark). On hover it
-   lifts, the shadow deepens, the brand gradient fades in behind the
-   label (ink switch to --on-accent for contrast) and a soft sheen
-   sweeps across once. Content sits above the overlays. */
 .btn-primary {
   position: relative;
   overflow: hidden;
@@ -117,46 +113,17 @@ footer[id] {
   transition: transform $dur-hover $ease-out;
 }
 
-/* ---------- Hero (centered, swift.org rhythm) ---------- */
+/* ---------- Hero ---------- */
 
 .hero {
-  position: relative;
-  overflow: hidden;
-  padding: 96px 0 56px;
-  text-align: center;
+  padding: 72px 0 40px;
 
   @include on-palm {
-    padding: 64px 0 40px;
-  }
-}
-
-/* Subtle orange swoop behind the headline — swift.org's signature curve,
-   kept very light so the page stays airy. Draws in once on load. */
-.hero-swoop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 380px;
-  z-index: 0;
-  pointer-events: none;
-
-  svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    svg path {
-      animation: swoop-in 900ms $ease-out both;
-    }
+    padding: 48px 0 28px;
   }
 }
 
 .hero-inner {
-  position: relative;
-  z-index: 1;
   max-width: $content-width;
   margin: 0 auto;
   padding: 0 32px;
@@ -167,300 +134,126 @@ footer[id] {
 }
 
 .hero-title {
-  font-size: clamp(42px, 6vw, 76px);
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  font-size: clamp(40px, 5.6vw, 68px);
+  letter-spacing: -0.038em;
+  line-height: 1.04;
   font-weight: 700;
-  margin: 0 auto 20px;
-  max-width: 100%;
-
-  @include on-palm {
-    font-size: 40px;
-    line-height: 1.05;
-  }
+  margin: 0 0 16px;
+  max-width: 11em;
+  text-wrap: balance;
 }
 
 .hero-sub {
-  font-size: clamp(22px, 2.6vw, 28px);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: $text;
-  margin: 0 auto 36px;
+  font-size: clamp(18px, 2.1vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  line-height: 1.4;
+  color: $text-muted;
+  margin: 0 0 28px;
+  max-width: 32ch;
 }
 
 .hero-cta {
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .hero-meta {
   font-family: $font-mono;
-  font-size: 13.5px;
+  font-size: 13px;
   color: $text-faint;
   margin: 0;
 }
 
-/* ---------- Get started: 3 link cards + 4 text links ---------- */
+/* ---------- Product shot ---------- */
 
-.get-started {
-  padding: 48px 0 0;
-}
-
-.section-head {
-  margin-bottom: 40px;
-
-  @include on-palm {
-    margin-bottom: 28px;
-  }
-}
-
-.section-title {
-  font-size: 34px;
-  letter-spacing: -0.025em;
-  margin: 0;
-
-  @include on-palm {
-    font-size: 27px;
-  }
-}
-
-.section-sub {
-  color: $text-muted;
-  font-size: 16px;
-  max-width: 520px;
-  margin: 8px 0 0;
-}
-
-.gs-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-bottom: 32px;
-
-  @include on-mid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.gs-card {
+.product {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
   display: block;
-  padding: 28px 24px;
-  background: $bg-card;
-  border: 1px solid $border;
-  border-radius: $radius-card;
-  transition:
-    transform $dur-hover $ease-out,
-    box-shadow $dur-hover $ease-out,
-    border-color $dur-hover $ease-hover;
 
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: $shadow-card-hover;
-      border-color: $border-strong;
-    }
-  }
-
-  h3 {
-    font-size: 18px;
-    letter-spacing: -0.01em;
-    margin: 0 0 6px;
-    transition: color $dur-hover $ease-hover;
-  }
-
-  p {
-    font-size: 14.5px;
-    color: $text-muted;
-    line-height: 1.55;
-    margin: 0;
+  @include on-palm {
+    padding: 0 16px;
   }
 }
 
-.gs-card-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: $radius-chip;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.product-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: $radius-panel;
+  border: 1px solid $border;
+  box-shadow: $shadow-code;
   background: $bg-sunken;
-  border: 1px solid $border;
-  color: $accent-ink;
-  margin-bottom: 20px;
+}
 
-  svg {
-    display: block;
+/* ---------- Features ---------- */
+
+.features {
+  padding: 80px 0 24px;
+
+  @include on-palm {
+    padding: 56px 0 8px;
   }
 }
 
-/* Secondary row of four title-only links in a grid. */
-.gs-links {
+.feature-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
   margin: 0;
   padding: 0;
   list-style: none;
   border-top: 1px solid $border;
-  border-bottom: 1px solid $border;
-
-  @include on-mid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
   @include on-palm {
     grid-template-columns: 1fr;
-    border-bottom: none;
   }
 
-  a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 20px 8px;
-    font-size: 15px;
-    font-weight: 600;
-    color: $text;
+  li {
+    padding: 28px 32px 28px 0;
+    border-bottom: 1px solid $border;
 
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        color: $accent-ink;
-      }
+    &:nth-child(odd) {
+      padding-right: 40px;
+      border-right: 1px solid $border;
+    }
+
+    &:nth-child(even) {
+      padding-left: 40px;
     }
 
     @include on-palm {
-      border-bottom: 1px solid $border;
-      padding: 16px 0;
-    }
-  }
-}
+      padding: 22px 0;
 
-.gs-link-arrow {
-  display: inline-flex;
-  flex-shrink: 0;
-  opacity: 0;
-  transform: translateX(-4px);
-  transition:
-    opacity $dur-hover $ease-hover,
-    transform $dur-hover $ease-out;
-
-  @media (hover: hover) and (pointer: fine) {
-    .gs-links a:hover & {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-}
-
-/* ---------- Callouts (the core story: text | code, alternating) ---------- */
-
-.callouts {
-  padding: 112px 0 32px;
-}
-
-.callouts-intro {
-  font-size: 19px;
-  color: $text-muted;
-  max-width: 60ch;
-  margin: 0 0 48px;
-}
-
-.callout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: center;
-  padding: 72px 0;
-
-  @include on-laptop {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 56px 0;
-  }
-}
-
-.callout-reverse {
-  .callout-copy {
-    order: 2;
-
-    @include on-laptop {
-      order: 0;
+      &:nth-child(odd),
+      &:nth-child(even) {
+        padding-left: 0;
+        padding-right: 0;
+        border-right: none;
+      }
     }
   }
 
-  .callout-visual {
-    order: 1;
+  h2 {
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+  }
 
-    @include on-laptop {
-      order: 0;
-    }
+  p {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: $text-muted;
+    max-width: 42ch;
+    margin: 0;
   }
 }
 
-.callout-title {
-  font-size: clamp(38px, 4vw, 48px);
-  letter-spacing: -0.03em;
-  margin: 0 0 12px;
-}
-
-.callout-subtitle {
-  font-size: 24px;
-  color: $text-muted;
-  margin: 0 0 20px;
-  letter-spacing: -0.01em;
-}
-
-.callout-body {
-  font-size: 17px;
-  color: $text-muted;
-  line-height: 1.7;
-  max-width: 55ch;
-  margin: 0;
-
-  code {
-    font-family: $font-mono;
-    font-size: 0.86em;
-    color: $accent-ink;
-  }
-}
-
-.callout-visual {
-  min-width: 0;
-}
-
-/* Dark code panel (swift.org style) — plain, no terminal chrome. */
-.code {
-  margin: 0;
-  background: $code-bg;
-  color: $code-text;
-  border-radius: $radius-code;
-  padding: 26px 28px;
-  font-family: $font-mono;
-  font-size: 14.5px;
-  line-height: 1.9;
-  overflow-x: auto;
-  box-shadow: $shadow-code;
-
-  @include on-palm {
-    font-size: 13px;
-    padding: 20px;
-  }
-
-  .t-cmd    { color: var(--code-text-strong); }
-  .t-out    { color: var(--code-text); }
-  .t-dim    { color: var(--code-text-faint); }
-  .t-prompt { color: var(--code-accent); }
-  .t-ok     { color: var(--code-accent); }
-}
-
-/* Hero swoop tint is theme-driven (same stops in both, tuned opacity). */
-.hero-swoop stop:first-child { stop-opacity: var(--swoop-opacity-from); }
-.hero-swoop stop:last-child  { stop-opacity: var(--swoop-opacity-to); }
-
-/* ---------- Specs strip (single hairline, plain responsive grid) ---------- */
+/* ---------- Specs strip ---------- */
 
 .specs {
-  padding: 48px 0 32px;
+  padding: 16px 0 48px;
 }
 
 .specs-list {
@@ -471,7 +264,6 @@ footer[id] {
   padding: 0 32px;
   list-style: none;
   max-width: $content-width;
-  border-top: 1px solid $border;
 
   @include on-mid {
     grid-template-columns: repeat(2, 1fr);
@@ -513,42 +305,27 @@ footer[id] {
   }
 }
 
-/* ---------- Motion (Emil's curves; gentle stagger; view-timeline reveals) ---------- */
+/* ---------- Motion ---------- */
 
 @keyframes rise-in {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes swoop-in {
-  from { opacity: 0; transform: translateY(-6%); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Hero loads with a 60ms stagger. */
   .hero-inner > * {
     animation: rise-in $dur-enter $ease-out both;
   }
 
-  .hero-inner > :nth-child(2) { animation-delay: 60ms; }
-  .hero-inner > :nth-child(3) { animation-delay: 120ms; }
+  .hero-inner > :nth-child(2) { animation-delay: 70ms; }
+  .hero-inner > :nth-child(3) { animation-delay: 130ms; }
   .hero-inner > :nth-child(4) { animation-delay: 180ms; }
 
-  /* Below the fold: reveals driven by scroll position where supported.
-     Browsers without view timelines show everything statically. */
   @supports (animation-timeline: view()) {
-    .gs-card {
-      animation: rise-in 500ms $ease-out both;
+    .feature-list li {
+      animation: rise-in 480ms $ease-out both;
       animation-timeline: view(block);
-      animation-range: entry 0% entry 28%;
-    }
-
-    .callout-copy,
-    .callout-visual {
-      animation: rise-in 500ms $ease-out both;
-      animation-timeline: view(block);
-      animation-range: entry 0% entry 32%;
+      animation-range: entry 0% entry 30%;
     }
   }
 }

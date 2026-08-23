@@ -1,26 +1,14 @@
 /* ============================================================
-   ActorTerm design tokens — swift.org-style light/dark system.
-   Three-layer graph:
-     1. Reference palette  ($ref-*)  concrete colors (OKLCH-minded).
-     2. Semantic tokens    (--*)     roles, defined once per theme.
-     3. Components consume semantic tokens ONLY (via $ alias -> var()).
-   Light mirrors the shipped design; dark is the OLED-ish #050505 mirror.
+   ActorTerm design tokens — dark only.
    ============================================================ */
 
-/* ---- 1. Reference palette (concrete colors) ---- */
 $ref-accent-from: #ff8d28;
 $ref-accent-to: #ff383c;
-$ref-accent-ink-light: #c2410c; /* accent as text on light surfaces */
-$ref-accent-ink-dark: #ff9f45;  /* accent as text on dark surfaces  */
-$ref-on-accent: #170a00;        /* dark ink legible on the gradient */
+$ref-accent-ink: #ff9f45;
+$ref-on-accent: #170a00;
 
-$ref-ink-strong: #000000;
 $ref-ink: #1d1d1f;
-$ref-ink-muted: #6e6e73;
 $ref-ink-faint: #86868b;
-$ref-white: #ffffff;
-$ref-gray-raised: #f5f5f7;
-
 $ref-paper-strong: #f5f5f7;
 $ref-paper: #e5e5ea;
 $ref-paper-muted: #a1a1a6;
@@ -30,67 +18,12 @@ $ref-panel-sunken: #141418;
 $ref-panel-raised: #1d1d1f;
 $ref-control-track: #1c1c1e;
 $ref-control-active: #3a3a3c;
-
-$ref-code-dim: #b3b3ba;
 $ref-code-comment: #98989d;
 $ref-code-strong: #f2f2f5;
 
-/* ---- 2. Semantic tokens (theme definitions) ---- */
+:root {
+  color-scheme: dark;
 
-@mixin light-tokens {
-  /* Surfaces */
-  --surface: #{$ref-white};
-  --surface-raised: #{$ref-gray-raised};
-  --surface-card: #{$ref-white};
-  --surface-sunken: #{$ref-gray-raised};
-  --header-bg: rgba(255, 255, 255, 0.82);
-  --code-bg: #{$ref-ink};
-  --control-track: #{$ref-gray-raised};
-  --control-active: #{$ref-white};
-
-  /* Text */
-  --text-strong: #{$ref-ink-strong};
-  --text: #{$ref-ink};
-  --text-muted: #{$ref-ink-muted};
-  --text-faint: #{$ref-ink-faint};
-  --code-text-strong: #{$ref-white};
-  --code-text: #{$ref-code-dim};
-  --code-text-faint: #{$ref-ink-muted};
-  --on-accent: #{$ref-on-accent};
-
-  /* Accent (single brand orange — kept identical in both themes) */
-  --accent-from: #{$ref-accent-from};
-  --accent-to: #{$ref-accent-to};
-  --accent-ink: #{$ref-accent-ink-light};
-  --code-accent: #{$ref-accent-from};
-
-  /* Borders */
-  --border: rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(0, 0, 0, 0.14);
-
-  /* Buttons */
-  --btn-bg: #{$ref-ink};
-  --btn-text: #{$ref-white};
-
-  /* Shadows */
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-card-hover:
-    0 8px 24px rgba(0, 0, 0, 0.08),
-    0 2px 6px rgba(0, 0, 0, 0.04);
-  --shadow-btn-hover: 0 8px 24px rgba(0, 0, 0, 0.18);
-  --shadow-code: 0 24px 48px -24px rgba(0, 0, 0, 0.42);
-  --shadow-control: 0 1px 2px rgba(0, 0, 0, 0.12);
-
-  /* Hero swoop */
-  --swoop-opacity-from: 0.1;
-  --swoop-opacity-to: 0.04;
-
-  /* Selection */
-  --selection-bg: color-mix(in oklab, var(--accent-from) 28%, transparent);
-}
-
-@mixin dark-tokens {
-  /* Surfaces — OLED-ish #050505 family, Apple-quality grays */
   --surface: #{$ref-oled};
   --surface-raised: #{$ref-panel-raised};
   --surface-card: #{$ref-panel-dark};
@@ -100,7 +33,6 @@ $ref-code-strong: #f2f2f5;
   --control-track: #{$ref-control-track};
   --control-active: #{$ref-control-active};
 
-  /* Text */
   --text-strong: #{$ref-paper-strong};
   --text: #{$ref-paper};
   --text-muted: #{$ref-paper-muted};
@@ -110,21 +42,17 @@ $ref-code-strong: #f2f2f5;
   --code-text-faint: #{$ref-code-comment};
   --on-accent: #{$ref-on-accent};
 
-  /* Accent (single brand orange — kept identical in both themes) */
   --accent-from: #{$ref-accent-from};
   --accent-to: #{$ref-accent-to};
-  --accent-ink: #{$ref-accent-ink-dark};
-  --code-accent: #{$ref-accent-ink-dark};
+  --accent-ink: #{$ref-accent-ink};
+  --code-accent: #{$ref-accent-ink};
 
-  /* Borders */
   --border: rgba(255, 255, 255, 0.12);
   --border-strong: rgba(255, 255, 255, 0.24);
 
-  /* Buttons — invert to a light pill so it reads on near-black */
   --btn-bg: #{$ref-paper-strong};
   --btn-text: #{$ref-ink};
 
-  /* Shadows — stronger on near-black */
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-card-hover:
     0 8px 24px rgba(0, 0, 0, 0.6),
@@ -133,27 +61,7 @@ $ref-code-strong: #f2f2f5;
   --shadow-code: 0 24px 48px -24px rgba(0, 0, 0, 0.85);
   --shadow-control: 0 1px 2px rgba(0, 0, 0, 0.5);
 
-  /* Hero swoop — slightly hotter so it reads on near-black */
-  --swoop-opacity-from: 0.16;
-  --swoop-opacity-to: 0.07;
-
-  /* Selection */
   --selection-bg: color-mix(in oklab, var(--accent-from) 28%, transparent);
-}
-
-/* Themed values:
-     :root                        = light (default)
-     @media (prefers-color-scheme: dark) = follows the OS only (no manual toggle) */
-:root {
-  color-scheme: light;
-  @include light-tokens;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    @include dark-tokens;
-  }
 }
 
 /* ---- 3. Component-facing aliases (Sass vars -> semantic CSS vars) ---- */
@@ -192,7 +100,7 @@ $shadow-code: var(--shadow-code);
 $radius-chip: 8px;
 $radius-code: 14px;
 $radius-card: 18px;
-$radius-panel: 24px;
+$radius-panel: 20px;
 $radius-pill: 999px;
 
 /* ---- Typography (Apple system stack — swift.org) ---- */

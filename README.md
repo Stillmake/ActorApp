@@ -19,7 +19,7 @@ npm run build
 
 ## Content
 
-- `index.html` — landing page (hero, features, download band)
+- `index.html` — landing page (hero, product shot, features)
 - `changelog.html` — release notes, driven by `_data/releases.json`
 - `about.html` — about page
 - `version.json` — published version feed used by the macOS app's update check

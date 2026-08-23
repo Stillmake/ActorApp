@@ -1,97 +1,39 @@
 @use "core" as *;
 
-/* swift.org-style light footer: Apple gray band, brand + nav columns,
-   bottom legal row. */
 .site-footer {
   border-top: 1px solid $border;
   background: $bg-raised;
 }
 
 .site-footer-inner {
-  max-width: $content-width;
-  margin: 0 auto;
-  padding: 40px 32px 20px;
-
-  @include on-palm {
-    padding: 32px 20px 20px;
-  }
-}
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 32px;
-  margin-bottom: 28px;
-
-  @include on-palm {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-
-.footer-col {
-  align-items: flex-end;
-  text-align: right;
-
-  @include on-palm {
-    align-items: flex-start;
-    text-align: left;
-  }
-}
-
-.footer-brand .site-brand {
-  margin-bottom: 12px;
-  color: $text-strong;
-}
-
-.footer-brand p {
-  color: $text-faint;
-  font-size: 14px;
-  max-width: 260px;
-  margin: 0;
-}
-
-.footer-col {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  a {
-    color: $text-muted;
-    font-size: 14.5px;
-    transition: color $dur-hover $ease-hover;
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        color: $text-strong;
-      }
-    }
-  }
-}
-
-.footer-heading {
-  font-family: $font-mono;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: $text-faint;
-  margin: 0 0 4px;
-}
-
-.footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  flex-wrap: wrap;
-  padding-top: 16px;
-  border-top: 1px solid $border;
-  font-family: $font-mono;
-  font-size: 13px;
-  color: $text-faint;
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 20px 32px;
+
+  @include on-palm {
+    padding: 16px 20px;
+  }
 
   p {
     margin: 0;
+    font-family: $font-mono;
+    font-size: 13px;
+    color: $text-faint;
+  }
+
+  a {
+    font-family: $font-mono;
+    font-size: 13px;
+    color: $text-faint;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: $text;
+      }
+    }
   }
 }

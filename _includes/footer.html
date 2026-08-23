@@ -1,21 +1,6 @@
 <footer class="site-footer">
   <div class="site-footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a class="site-brand" href="#top" aria-label="{{ site.title }} home">
-          {% include "brand_mark.html" %}
-          <span class="site-brand-name">{{ site.title }}</span>
-        </a>
-        <p>A fast, focused terminal for macOS, built on Ghostty.</p>
-      </div>
-      <div class="footer-col">
-        <p class="footer-heading">Source</p>
-        <a href="{{ site.repo }}" target="_blank" rel="noopener">GitHub</a>
-        <a href="{{ site.release_url }}" target="_blank" rel="noopener">Releases</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>Copyright © {{ site.current_year }} {{ site.author }}. All rights reserved.</p>
-    </div>
+    <p>Copyright © {{ site.current_year }} {{ site.author }}.</p>
+    <a href="{{ site.repo }}/issues" target="_blank" rel="noopener">Contact</a>
   </div>
 </footer>
