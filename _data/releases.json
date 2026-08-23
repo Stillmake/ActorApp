@@ -1,98 +1,10 @@
 [
   {
-    "tag": "1.0(113)",
-    "name": "ActorTerm 1.0(113)",
-    "publishedAt": "2026-08-13T12:29:28Z",
+    "tag": "1.0(158)",
+    "name": "Actor 1.0(158)",
+    "publishedAt": "2026-08-23T11:20:50Z",
     "isDraft": false,
     "isPrerelease": false,
-    "body": "Release 1.0(113)\n\nCommit: 6f10afa\n\n### New Features\n\n- Per-session notes: attach a note to any terminal session, auto-saved, restorable across restarts, and expandable/foldable from the Info panel (`bd97eb2`, `6f10afa`, `c106f6a`, `89962ba`)\n\n### Improvements\n\n- Tightened sidebar spacing and layout in the Info and Git panels (`89962ba`)\n- Removed the TTY metric (`89962ba`)\n\n### Fixes\n\n- OpenCode detection also recognizes `opencode.exe` (`28ff83a`)\n\n"
-  },
-  {
-    "tag": "1.0(106)",
-    "name": "ActorTerm 1.0(106)",
-    "publishedAt": "2026-08-12T02:25:14Z",
-    "isDraft": false,
-    "isPrerelease": false,
-    "body": "Release 1.0(106)\n\nCommit: a047dd8\n\n## ActorTerm 1.0(106)\n\nCommit: a047dd8\n\n### New Features\n\n- Dock badge with unread/notification count (`ea97ba2`)\n- Terminal progress view with ring indicator (`89b6205`, `7b4aa24`)\n- Command key shortcuts monitor (`33a1693`)\n\n### Improvements\n\n- \"Need attention\" tab for items requiring focus (`0fb7371`)\n- Missing icon added (`5aa6c1d`)\n- Various UI updates and refinements (`1a3d22c`, `cf501ba`, `97287b2`, `5ec3191`)\n- Permissions and script updates (`20151db`)\n\n### Fixes\n\n- Permission badge display issues (`eb3122c`, `a047dd8`)\n\n"
-  },
-  {
-    "tag": "1.0(101)",
-    "name": "ActorTerm 1.0(101)",
-    "publishedAt": "2026-08-11T07:29:55Z",
-    "isDraft": false,
-    "isPrerelease": false,
-    "body": "Release 1.0(101)\n"
-  },
-  {
-    "tag": "1.0(98)",
-    "name": "ActorTerm 1.0(98)",
-    "publishedAt": "2026-08-10T07:53:59Z",
-    "isDraft": false,
-    "isPrerelease": false,
-    "body": "Release 1.0(98)\n"
-  },
-  {
-    "tag": "1.0(84)",
-    "name": "ActorTerm 1.0(84)",
-    "publishedAt": "2026-08-09T01:35:35Z",
-    "isDraft": false,
-    "isPrerelease": false,
-    "body": "Release 1.0(84)\n"
-  },
-  {
-    "tag": "1.0(70)",
-    "name": "Lineterm 1.0(70)",
-    "publishedAt": "2026-08-01T01:49:42Z",
-    "isDraft": false,
-    "isPrerelease": false,
-    "body": "Release 1.0(70)\n"
-  },
-  {
-    "tag": "1.0(60)",
-    "name": "Lineterm 1.0(60)",
-    "publishedAt": "2026-07-29T12:24:18Z",
-    "isDraft": false,
-    "isPrerelease": false,
-    "body": "Release 1.0(60)\n"
-  },
-  {
-    "tag": "1.0(56)",
-    "name": "Lineterm 1.0(56)",
-    "publishedAt": "2026-07-28T15:01:23Z",
-    "isDraft": false,
-    "isPrerelease": false,
-    "body": "Release 1.0(56)\n"
-  },
-  {
-    "tag": "1.0(45)",
-    "name": "Lineterm 1.0(45)",
-    "publishedAt": "2026-07-27T14:30:11Z",
-    "isDraft": false,
-    "isPrerelease": false,
-    "body": "Release 1.0(45)\n"
-  },
-  {
-    "tag": "1.0(36)",
-    "name": "Lineterm 1.0(36)",
-    "publishedAt": "2026-07-26T15:17:32Z",
-    "isDraft": false,
-    "isPrerelease": false,
-    "body": "Release 1.0(36)\n"
-  },
-  {
-    "tag": "1.0(28)",
-    "name": "Lineterm 1.0(28)",
-    "publishedAt": "2026-07-26T08:29:27Z",
-    "isDraft": false,
-    "isPrerelease": false,
-    "body": "Release 1.0(28)\n"
-  },
-  {
-    "tag": "1.0(17)",
-    "name": "1.0(17)",
-    "publishedAt": "2026-07-25T15:28:18Z",
-    "isDraft": false,
-    "isPrerelease": false,
-    "body": "\n"
+    "body": "Release 1.0(158)\n\nCommit: 96e56fb\n\n### New Features\n\n- Ghostty-powered terminal with hierarchical sidebar\n- Lightweight\n- Native macOS app\n- Zero config — works right out of the box\n\n"
   }
 ]
