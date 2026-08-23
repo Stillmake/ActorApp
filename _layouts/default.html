@@ -14,7 +14,7 @@
           </span>
         </div>
         {% assign latest = releases | where: "isDraft", false | first %}
-        <a class="header-download" href="{{ site.release_url }}/latest" target="_blank" rel="noopener">
+        <a class="header-download" href="{{ latest.dmgUrl | default: site.release_url }}">
           <span class="header-download-label">Download</span>
           <span class="header-download-version" aria-hidden="true">{{ latest.tag }}</span>
         </a>

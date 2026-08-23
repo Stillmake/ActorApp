@@ -5,8 +5,8 @@
   <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#050505">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="icon" href="{{ site.base }}/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ site.base }}/assets/main.css">
   <meta property="og:title" content="{% if title and title != site.title %}{{ title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:type" content="website">

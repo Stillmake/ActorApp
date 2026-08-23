@@ -2,7 +2,7 @@
   "name": "Actor",
   "short_name": "Actor",
   "description": "A Ghostty-powered terminal for macOS, with a hierarchical sidebar.",
-  "start_url": "/",
+  "start_url": "/actor/",
   "display": "standalone",
   "background_color": "#0b0b0f",
   "theme_color": "#0b0b0f",

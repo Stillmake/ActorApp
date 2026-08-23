@@ -1,11 +1,15 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "actorterm",
+  "account_id": "e133382adeb72766264f711883cc552b",
   "compatibility_date": "2026-02-20",
-  "build": {
-    "command": "npm run build"
-  },
+  "main": "src/worker.js",
   "assets": {
-    "directory": "./dist"
-  }
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "routes": [
+    { "pattern": "stillmake.com/actor", "zone_name": "stillmake.com" },
+    { "pattern": "stillmake.com/actor/*", "zone_name": "stillmake.com" }
+  ]
 }

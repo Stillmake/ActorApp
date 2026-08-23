@@ -15,6 +15,7 @@ const releases = [];
 for (const r of list) {
   let body = "";
   let dmgSize = null;
+  let dmgUrl = null;
   try {
     const detail = JSON.parse(
       execFileSync(
@@ -26,6 +27,7 @@ for (const r of list) {
     body = detail.body ?? "";
     const dmg = (detail.assets ?? []).find((asset) => asset.name?.endsWith(".dmg"));
     if (dmg && Number.isFinite(dmg.size)) dmgSize = dmg.size;
+    if (dmg?.url) dmgUrl = dmg.url;
   } catch {
     body = "";
   }
@@ -37,6 +39,7 @@ for (const r of list) {
     isPrerelease: r.isPrerelease,
     body,
     dmgSize,
+    dmgUrl,
   });
 }
 

@@ -10,15 +10,15 @@ description: A Ghostty-powered terminal for macOS, with a hierarchical sidebar. 
     <p class="hero-sub">
       Ghostty-powered, with a hierarchical sidebar. Native, lightweight, no setup.
     </p>
+    {% assign latest = releases | where: "isDraft", false | first %}
     <div class="hero-cta">
-      <a class="btn btn-primary" href="{{ site.release_url }}/latest" target="_blank" rel="noopener">
+      <a class="btn btn-primary" href="{{ latest.dmgUrl | default: site.release_url }}">
         <span class="btn-label">Download for macOS</span>
         <span class="btn-arrow" aria-hidden="true">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
         </span>
       </a>
     </div>
-    {% assign latest = releases | where: "isDraft", false | first %}
     <p class="hero-meta mono">
       {{ latest.tag }}{% if latest.dmgSize %} · {{ latest.dmgSize | filesize }}{% endif %} · macOS {{ site.macos_min }}+
     </p>
@@ -28,7 +28,7 @@ description: A Ghostty-powered terminal for macOS, with a hierarchical sidebar. 
 <figure class="product">
   <img
     class="product-shot"
-    src="/assets/app.jpg"
+    src="{{ site.base }}/assets/app.jpg"
     width="2400"
     height="1558"
     alt="Actor with a session sidebar, Ghostty prompt, and inspector showing status, jobs, and a session note."
