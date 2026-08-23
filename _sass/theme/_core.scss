@@ -1,0 +1,251 @@
+/* ============================================================
+   ActorTerm design tokens — swift.org-style light/dark system.
+   Three-layer graph:
+     1. Reference palette  ($ref-*)  concrete colors (OKLCH-minded).
+     2. Semantic tokens    (--*)     roles, defined once per theme.
+     3. Components consume semantic tokens ONLY (via $ alias -> var()).
+   Light mirrors the shipped design; dark is the OLED-ish #050505 mirror.
+   ============================================================ */
+
+/* ---- 1. Reference palette (concrete colors) ---- */
+$ref-accent-from: #ff8d28;
+$ref-accent-to: #ff383c;
+$ref-accent-ink-light: #c2410c; /* accent as text on light surfaces */
+$ref-accent-ink-dark: #ff9f45;  /* accent as text on dark surfaces  */
+$ref-on-accent: #170a00;        /* dark ink legible on the gradient */
+
+$ref-ink-strong: #000000;
+$ref-ink: #1d1d1f;
+$ref-ink-muted: #6e6e73;
+$ref-ink-faint: #86868b;
+$ref-white: #ffffff;
+$ref-gray-raised: #f5f5f7;
+
+$ref-paper-strong: #f5f5f7;
+$ref-paper: #e5e5ea;
+$ref-paper-muted: #a1a1a6;
+$ref-oled: #050505;
+$ref-panel-dark: #0c0c10;
+$ref-panel-sunken: #141418;
+$ref-panel-raised: #1d1d1f;
+$ref-control-track: #1c1c1e;
+$ref-control-active: #3a3a3c;
+
+$ref-code-dim: #b3b3ba;
+$ref-code-comment: #98989d;
+$ref-code-strong: #f2f2f5;
+
+/* ---- 2. Semantic tokens (theme definitions) ---- */
+
+@mixin light-tokens {
+  /* Surfaces */
+  --surface: #{$ref-white};
+  --surface-raised: #{$ref-gray-raised};
+  --surface-card: #{$ref-white};
+  --surface-sunken: #{$ref-gray-raised};
+  --header-bg: rgba(255, 255, 255, 0.82);
+  --code-bg: #{$ref-ink};
+  --control-track: #{$ref-gray-raised};
+  --control-active: #{$ref-white};
+
+  /* Text */
+  --text-strong: #{$ref-ink-strong};
+  --text: #{$ref-ink};
+  --text-muted: #{$ref-ink-muted};
+  --text-faint: #{$ref-ink-faint};
+  --code-text-strong: #{$ref-white};
+  --code-text: #{$ref-code-dim};
+  --code-text-faint: #{$ref-ink-muted};
+  --on-accent: #{$ref-on-accent};
+
+  /* Accent (single brand orange — kept identical in both themes) */
+  --accent-from: #{$ref-accent-from};
+  --accent-to: #{$ref-accent-to};
+  --accent-ink: #{$ref-accent-ink-light};
+  --code-accent: #{$ref-accent-from};
+
+  /* Borders */
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.14);
+
+  /* Buttons */
+  --btn-bg: #{$ref-ink};
+  --btn-text: #{$ref-white};
+
+  /* Shadows */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover:
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-btn-hover: 0 8px 24px rgba(0, 0, 0, 0.18);
+  --shadow-code: 0 24px 48px -24px rgba(0, 0, 0, 0.42);
+  --shadow-control: 0 1px 2px rgba(0, 0, 0, 0.12);
+
+  /* Hero swoop */
+  --swoop-opacity-from: 0.1;
+  --swoop-opacity-to: 0.04;
+
+  /* Selection */
+  --selection-bg: color-mix(in oklab, var(--accent-from) 28%, transparent);
+}
+
+@mixin dark-tokens {
+  /* Surfaces — OLED-ish #050505 family, Apple-quality grays */
+  --surface: #{$ref-oled};
+  --surface-raised: #{$ref-panel-raised};
+  --surface-card: #{$ref-panel-dark};
+  --surface-sunken: #{$ref-panel-sunken};
+  --header-bg: rgba(5, 5, 5, 0.82);
+  --code-bg: #{$ref-panel-dark};
+  --control-track: #{$ref-control-track};
+  --control-active: #{$ref-control-active};
+
+  /* Text */
+  --text-strong: #{$ref-paper-strong};
+  --text: #{$ref-paper};
+  --text-muted: #{$ref-paper-muted};
+  --text-faint: #{$ref-ink-faint};
+  --code-text-strong: #{$ref-code-strong};
+  --code-text: #{$ref-paper-muted};
+  --code-text-faint: #{$ref-code-comment};
+  --on-accent: #{$ref-on-accent};
+
+  /* Accent (single brand orange — kept identical in both themes) */
+  --accent-from: #{$ref-accent-from};
+  --accent-to: #{$ref-accent-to};
+  --accent-ink: #{$ref-accent-ink-dark};
+  --code-accent: #{$ref-accent-ink-dark};
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.24);
+
+  /* Buttons — invert to a light pill so it reads on near-black */
+  --btn-bg: #{$ref-paper-strong};
+  --btn-text: #{$ref-ink};
+
+  /* Shadows — stronger on near-black */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover:
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-btn-hover: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-code: 0 24px 48px -24px rgba(0, 0, 0, 0.85);
+  --shadow-control: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+  /* Hero swoop — slightly hotter so it reads on near-black */
+  --swoop-opacity-from: 0.16;
+  --swoop-opacity-to: 0.07;
+
+  /* Selection */
+  --selection-bg: color-mix(in oklab, var(--accent-from) 28%, transparent);
+}
+
+/* Themed values:
+     :root                        = light (default)
+     @media (prefers-color-scheme: dark) = follows the OS only (no manual toggle) */
+:root {
+  color-scheme: light;
+  @include light-tokens;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    @include dark-tokens;
+  }
+}
+
+/* ---- 3. Component-facing aliases (Sass vars -> semantic CSS vars) ---- */
+$bg: var(--surface);
+$bg-raised: var(--surface-raised);
+$bg-card: var(--surface-card);
+$bg-sunken: var(--surface-sunken);
+$code-bg: var(--code-bg);
+$code-text: var(--code-text);
+$border: var(--border);
+$border-strong: var(--border-strong);
+
+$text-strong: var(--text-strong);
+$text: var(--text);
+$text-muted: var(--text-muted);
+$text-faint: var(--text-faint);
+
+$accent-from: var(--accent-from);
+$accent-to: var(--accent-to);
+$accent-solid: var(--accent-from);
+$accent-ink: var(--accent-ink);
+$accent-rule: var(--accent-from);
+$accent-gradient: linear-gradient(135deg, var(--accent-from) 0%, var(--accent-to) 100%);
+
+$btn-bg: var(--btn-bg);
+$btn-text: var(--btn-text);
+
+$shadow-card: var(--shadow-card);
+$shadow-card-hover: var(--shadow-card-hover);
+$shadow-btn-hover: var(--shadow-btn-hover);
+$shadow-code: var(--shadow-code);
+
+/* ---- Shape (rounded, soft, generous, machined) ----
+   Coherent scale: small chips 8 · code 14 · cards 18 · large panels 24 ·
+   pills full. Nested surfaces step down with padding so they read smooth. */
+$radius-chip: 8px;
+$radius-code: 14px;
+$radius-card: 18px;
+$radius-panel: 24px;
+$radius-pill: 999px;
+
+/* ---- Typography (Apple system stack — swift.org) ---- */
+$font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+  Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+$font-mono: "SF Mono", ui-monospace, Menlo, Consolas, Monaco, "Courier New",
+  monospace;
+
+/* ---- Layout ---- */
+$content-width: 1080px;
+
+/* ---- Motion (Emil's custom curves; no linear / ease-in for UI) ---- */
+$ease-out: cubic-bezier(0.23, 1, 0.32, 1); /* enter + press feedback */
+$ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); /* on-screen movement */
+$ease-drawer: cubic-bezier(0.32, 0.72, 0, 1); /* iOS drawer feel */
+$ease-hover: ease; /* color hovers only */
+
+$dur-press: 150ms;
+$dur-hover: 200ms;
+$dur-enter: 400ms;
+
+$on-palm: 640px;
+$on-mid: 860px;
+$on-laptop: 1024px;
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin on-palm {
+  @media screen and (max-width: $on-palm) {
+    @content;
+  }
+}
+
+@mixin on-mid {
+  @media screen and (max-width: $on-mid) {
+    @content;
+  }
+}
+
+@mixin on-laptop {
+  @media screen and (max-width: $on-laptop) {
+    @content;
+  }
+}
+
+@mixin gradient-text {
+  background: $accent-gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}

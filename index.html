@@ -1,0 +1,196 @@
+---
+layout: default
+title: ActorTerm
+description: A fast, focused terminal for macOS, built on Ghostty. Session notes, Git and file panels, dock badges, and agent-ready sessions.
+---
+
+<section class="hero">
+  <div class="hero-swoop" aria-hidden="true">
+    <svg viewBox="0 0 1440 380" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="swoop-grad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#FF8D28" stop-opacity="0.10"/>
+          <stop offset="1" stop-color="#FF383C" stop-opacity="0.04"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,300 C300,120 900,340 1440,120 L1440,0 L0,0 Z" fill="url(#swoop-grad)"/>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <h1 class="hero-title">
+      ActorTerm is the <span class="accent-text">fast</span>, focused terminal for macOS.
+    </h1>
+    <p class="hero-sub">
+      Fast. Focused. Yours.<span class="t-cursor" aria-hidden="true"></span>
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="{{ site.release_url }}/latest" target="_blank" rel="noopener">
+        <span class="btn-label">Download for macOS</span>
+        <span class="btn-arrow" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+        </span>
+      </a>
+    </div>
+    {% assign latest = releases | where: "isDraft", false | first %}
+    <p class="hero-meta mono">Latest release: {{ latest.name }} · {{ latest.publishedAt | date: "%b %d, %Y" }}</p>
+  </div>
+</section>
+
+<section class="get-started" id="get-started">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2 class="section-title">Create using ActorTerm</h2>
+      <p class="section-sub">Built on the Ghostty engine, with panels that earn their place beside the prompt.</p>
+    </div>
+
+    <div class="gs-cards">
+      <a class="gs-card" href="#focused">
+        <span class="gs-card-icon" aria-hidden="true">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        </span>
+        <h3>Session Notes</h3>
+        <p>Attach a note to any session. Auto-saved, restored across restarts, one keystroke away.</p>
+      </a>
+      <a class="gs-card" href="#focused">
+        <span class="gs-card-icon" aria-hidden="true">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 8.5v7"/><path d="M18 10.5c0 3.5-4 3.5-6.5 5"/></svg>
+        </span>
+        <h3>Git at a glance</h3>
+        <p>Status, history, and diffs in the sidebar. Filter changed files without leaving the prompt.</p>
+      </a>
+      <a class="gs-card" href="#safe">
+        <span class="gs-card-icon" aria-hidden="true">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-5-6-5"/><path d="M12 19h8"/></svg>
+        </span>
+        <h3>Agent Sessions</h3>
+        <p>Open agent sessions with <span class="mono">actorterm://new</span>. Tokens authorize every request.</p>
+      </a>
+    </div>
+
+    <ul class="gs-links">
+      <li>
+        <a href="#safe">Dock Badge
+          <span class="gs-link-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a href="#focused">File Tree &amp; Editor
+          <span class="gs-link-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a href="#safe">Desktop Notifications
+          <span class="gs-link-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a href="#focused">Progress Rings
+          <span class="gs-link-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="callouts" id="features">
+  <div class="section-inner">
+    <p class="callouts-intro">
+      ActorTerm is designed to be the terminal you reach for at every layer of
+      your work — from a quick shell session to a long-running agent task. It
+      is fast because it is built on Ghostty, focused because the panels stay
+      out of your way, and safe because nothing opens without authorization.
+    </p>
+
+    <div class="callout" id="fast">
+      <div class="callout-copy">
+        <h2 class="callout-title">Fast</h2>
+        <p class="callout-subtitle">Built on the Ghostty engine.</p>
+        <p class="callout-body">
+          GPU-accelerated rendering keeps huge logs, busy prompts, and
+          long-running builds fluid at any size. Startup is near-instant and
+          memory stays flat, so the terminal never becomes the thing you are
+          waiting on.
+        </p>
+      </div>
+      <div class="callout-visual">
+        <pre class="code" aria-label="Terminal session"><code><span class="t-prompt">❯</span> <span class="t-cmd">git fetch --all --prune</span>
+<span class="t-out">remote: Enumerating objects: 128, done.</span>
+<span class="t-ok">✓</span> <span class="t-out">Working tree up to date</span>
+
+<span class="t-prompt">❯</span> <span class="t-cmd">./scripts/build.sh --release</span>
+<span class="t-out">  compiling actorterm (release)  0.9s</span>
+<span class="t-ok">✓</span> <span class="t-out">bundle signed &amp; notarized</span>
+
+<span class="t-prompt">❯</span> <span class="t-cmd">actorterm --version</span>
+<span class="t-out">ActorTerm 1.0(113)</span></code></pre>
+      </div>
+    </div>
+
+    <div class="callout callout-reverse" id="focused">
+      <div class="callout-copy">
+        <h2 class="callout-title">Focused</h2>
+        <p class="callout-subtitle">Notes and panels beside the prompt.</p>
+        <p class="callout-body">
+          Per-session notes are auto-saved and restored across restarts, so
+          context survives the machine. Git, file-tree, and editor panels sit
+          in a tidy sidebar — review hunks, open files, and jump back to the
+          prompt without losing your flow.
+        </p>
+      </div>
+      <div class="callout-visual">
+        <pre class="code" aria-label="Git status"><code><span class="t-prompt">$</span> <span class="t-cmd">git status --short</span>
+<span class="t-out"> M src/Views/WorkspaceChrome.swift</span>
+<span class="t-ok"> A</span> <span class="t-out">src/Views/SessionNotes.swift</span>
+<span class="t-out"> D src/Helpers/OldPanel.swift</span>
+
+<span class="t-prompt">$</span> <span class="t-cmd">git log --oneline -3</span>
+<span class="t-out">6f10afa fix: opencode.exe detection</span>
+<span class="t-out">bd97eb2 feat: per-session notes</span>
+<span class="t-out">ea97ba2 feat: dock badge count</span></code></pre>
+      </div>
+    </div>
+
+    <div class="callout" id="safe">
+      <div class="callout-copy">
+        <h2 class="callout-title">Safe</h2>
+        <p class="callout-subtitle">Authorized by token, never by default.</p>
+        <p class="callout-body">
+          Agents and external tools open sessions through
+          <code>actorterm://new</code> with a token you grant once.
+          Notifications and dock badges announce arrivals without stealing
+          focus, and every signed build is notarized for macOS 13 and later.
+        </p>
+      </div>
+      <div class="callout-visual">
+        <pre class="code" aria-label="Configuration"><code><span class="t-prompt">$</span> <span class="t-cmd">open "actorterm://new?token=at_3f9k2..."</span>
+
+<span class="t-dim"># ~/.config/actorterm.toml</span>
+<span class="t-cmd">[agent]</span>
+<span class="t-out">authorize</span> <span class="t-cmd">= "on-launch"</span>   <span class="t-dim"># requested once</span>
+<span class="t-out">token</span>      <span class="t-cmd">= "$ACTORTERM_TOKEN"</span>
+<span class="t-out">badge</span>      <span class="t-cmd">= true</span>            <span class="t-dim"># announce arrivals</span></code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="specs">
+  <ul class="specs-list">
+    <li>
+      <strong>macOS 13+</strong>
+      <span>Ventura and later</span>
+    </li>
+    <li>
+      <strong>Universal</strong>
+      <span>Apple Silicon &amp; Intel</span>
+    </li>
+    <li>
+      <strong>Signed &amp; notarized</strong>
+      <span>Published to GitHub Releases</span>
+    </li>
+    <li>
+      <strong>Free</strong>
+      <span>Open builds, no accounts</span>
+    </li>
+  </ul>
+</section>

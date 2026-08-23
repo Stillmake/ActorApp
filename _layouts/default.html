@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default: site.lang }}">
+  {% include "head.html" %}
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-brand" href="#top" aria-label="{{ site.title }} home">
+          {% include "brand_mark.html" %}
+          <span class="site-brand-name">{{ site.title }}</span>
+        </a>
+        {% assign latest = releases | where: "isDraft", false | first %}
+        <a class="header-download" href="{{ site.release_url }}/latest" target="_blank" rel="noopener">
+          <span class="header-download-label">Download</span>
+          <span class="header-download-version" aria-hidden="true">{{ latest.tag }}</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="top">
+      {{ content }}
+    </main>
+
+    {% include "footer.html" %}
+
+    <script>
+      (function () {
+        var pill = document.querySelector(".header-download");
+        var hero = document.querySelector(".hero") || document.querySelector("#top");
+        if (!pill || !hero || !("IntersectionObserver" in window)) return;
+
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              pill.classList.toggle("is-visible", !entry.isIntersecting);
+            });
+          },
+          { threshold: 0 }
+        );
+
+        io.observe(hero);
+
+        window.addEventListener(
+          "pagehide",
+          function () {
+            io.disconnect();
+          },
+          { once: true }
+        );
+      })();
+    </script>
+  </body>
+</html>

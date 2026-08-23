@@ -1,0 +1,131 @@
+@use "core" as *;
+
+/* swift.org-style light bar: solid white with a soft blur when sticky,
+   one hairline base, brand on the left. NOT glass, NOT dark. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--header-bg);
+  -webkit-backdrop-filter: saturate(1.8) blur(20px);
+  backdrop-filter: saturate(1.8) blur(20px);
+  border-bottom: 1px solid $border;
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 60px;
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  @include on-palm {
+    height: 56px;
+    padding: 0 20px;
+  }
+}
+
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 17px;
+  color: $text-strong;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  display: block;
+  flex-shrink: 0;
+}
+
+.site-brand-name {
+  letter-spacing: -0.01em;
+}
+
+/* Header download pill — CTA revealed once the hero scrolls out of view.
+   Near-black pill in light, inverted via --btn tokens in dark. Hidden at
+   top (opacity 0, unmoved) until the observer adds `.is-visible`. Hover
+   mirrors the primary button: lift, deeper shadow, gradient wash behind
+   the label (ink flips to --on-accent for contrast). */
+.header-download {
+  position: relative;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 7px 16px;
+  border-radius: $radius-pill;
+  font-family: $font-sans;
+  font-size: 14px;
+  font-weight: 600;
+  color: $btn-text;
+  background: $btn-bg;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition:
+    opacity $dur-hover $ease-out,
+    transform $dur-hover $ease-out,
+    color $dur-hover $ease-hover,
+    box-shadow $dur-hover $ease-hover;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: $accent-gradient;
+    opacity: 0;
+    transition: opacity $dur-hover $ease-hover;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: $shadow-btn-hover;
+      color: var(--on-accent);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
+}
+
+.header-download-version {
+  font-family: $font-mono;
+  font-size: 12px;
+  color: currentColor;
+  opacity: 0.72;
+
+  @include on-palm {
+    display: none;
+  }
+}
