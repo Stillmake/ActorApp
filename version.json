@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.0.1",
+    "build": 162,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "? file lookup in the command palette: fuzzy-open any file in the working folder, reveal a directory in the Files panel, or start a session there"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.0",
     "build": 158,
     "notes": [
