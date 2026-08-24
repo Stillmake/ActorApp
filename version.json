@@ -1,5 +1,24 @@
 [
   {
+    "version": "1.0.3",
+    "build": 170,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "File editor matches your terminal: the editor takes its colors from the selected terminal theme, so editing sits flush with the terminal beside it — toggle in Settings"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Caret no longer hangs below its line — it is now centered in the text editor",
+          "Fixed a text editor drawing bug with line spacing"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.0.2",
     "build": 165,
     "notes": [
