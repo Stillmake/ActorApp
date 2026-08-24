@@ -13,10 +13,9 @@
             <span class="swift-rest" style="--n:21" aria-hidden="true"><span class="swift-inner"><span class="ch" style="--i:0">{</span><span class="ch" style="--i:1"> </span><span class="ch" style="--i:2">i</span><span class="ch" style="--i:3">s</span><span class="ch" style="--i:4">o</span><span class="ch" style="--i:5">l</span><span class="ch" style="--i:6">a</span><span class="ch" style="--i:7">t</span><span class="ch" style="--i:8">e</span><span class="ch" style="--i:9">(</span><span class="ch" style="--i:10">c</span><span class="ch" style="--i:11">o</span><span class="ch" style="--i:12">m</span><span class="ch" style="--i:13">p</span><span class="ch" style="--i:14">l</span><span class="ch" style="--i:15">e</span><span class="ch" style="--i:16">x</span><span class="ch" style="--i:17">i</span><span class="ch" style="--i:18">t</span><span class="ch" style="--i:19">y</span><span class="ch" style="--i:20">)</span><span class="ch" style="--i:21">}</span></span></span>
           </span>
         </div>
-        {% assign latest = releases | where: "isDraft", false | first %}
-        <a class="header-download" href="{{ latest.dmgUrl | default: site.release_url }}">
+        <a class="header-download" href="{{ site.release_url }}">
           <span class="header-download-label">Download</span>
-          <span class="header-download-version" aria-hidden="true">{{ latest.tag }}</span>
+          <span class="header-download-version" aria-hidden="true">{{ release.tag }}</span>
         </a>
       </div>
     </header>

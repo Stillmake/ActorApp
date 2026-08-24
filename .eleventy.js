@@ -10,10 +10,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "assets/app.jpg": "assets/app.jpg" });
   eleventyConfig.addPassthroughCopy({ "assets/og.jpg": "assets/og.jpg" });
 
-  eleventyConfig.addFilter("json_escape", (value) =>
-    JSON.stringify(String(value ?? "")).slice(1, -1)
-  );
-
   eleventyConfig.addFilter("filesize", (bytes) => {
     const n = Number(bytes);
     if (!Number.isFinite(n) || n <= 0) return "";
@@ -21,10 +17,6 @@ module.exports = function (eleventyConfig) {
     const label = mb >= 10 ? mb.toFixed(1) : mb.toFixed(1);
     return `${label.replace(/\.0$/, "")} MB`;
   });
-
-  eleventyConfig.addFilter("date_to_xmlschema", (value) =>
-    value ? new Date(value).toISOString() : ""
-  );
 
   return {
     dir: {

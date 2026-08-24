@@ -20,8 +20,6 @@ npm run build
 ## Content
 
 - `index.html` — landing page (hero, product shot, features)
-- `changelog.html` — release notes, driven by `_data/releases.json`
-- `about.html` — about page
 - `version.json` — published version feed used by the macOS app's update check
 - `_data/site.js` — site-wide metadata
 - `_sass/` — design system (dark terminal theme)
@@ -38,5 +36,5 @@ The download button always opens the latest GitHub release page.
 npm run fetch:releases
 ```
 
-Pulls release data (tag, date, body) from `Stillmake/ActorApp` via the
-GitHub CLI and writes it to `_data/releases.json`.
+Pulls the latest release tag and DMG size from `Stillmake/ActorApp` via the
+GitHub CLI and writes it to `_data/release.json`.

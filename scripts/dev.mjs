@@ -2,12 +2,13 @@ import { spawn } from "node:child_process";
 
 const children = [];
 
-function run(command, args) {
+function run(command, args, extraEnv = {}) {
   const child = spawn(command, args, {
     stdio: "inherit",
     env: {
       ...process.env,
       CHOKIDAR_USEPOLLING: "1",
+      ...extraEnv,
     },
   });
 
@@ -40,4 +41,4 @@ run("./node_modules/.bin/sass", [
   "--style=expanded",
   "--no-source-map",
 ]);
-run("./node_modules/.bin/eleventy", ["--serve"]);
+run("./node_modules/.bin/eleventy", ["--serve"], { ACTOR_BASE: "" });

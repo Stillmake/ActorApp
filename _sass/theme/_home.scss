@@ -171,6 +171,7 @@ footer[id] {
   margin: 0 auto;
   padding: 0 32px;
   display: block;
+  container-type: inline-size;
 
   @include on-palm {
     padding: 0 16px;
@@ -181,7 +182,7 @@ footer[id] {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: $radius-panel;
+  border-radius: 1.79cqw; /* 20px at the 1176px container, scales with the shot */
   border: 1px solid $border;
   box-shadow: $shadow-code;
   background: $bg-sunken;
