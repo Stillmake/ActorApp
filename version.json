@@ -1,5 +1,23 @@
 [
   {
+    "version": "1.0.5",
+    "build": 187,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Progress bar while the app downloads an update"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Failed update checks retry automatically"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.0.4",
     "build": 181,
     "notes": [
