@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.4",
+    "build": 181,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Line numbers in the file editor, highlighting the current line",
+          "Scroll past the last line of a file, so the bottom of the document can sit in the middle of the window",
+          "Word count in the editor status bar"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Windows (CRLF) files keep their line endings when you edit them — they no longer show every line as changed in git"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.0.3",
     "build": 170,
     "notes": [
