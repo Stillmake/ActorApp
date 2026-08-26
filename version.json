@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.0.6",
+    "build": 192,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Transparent images show a checkerboard background in the image viewer, so their transparent areas are visible"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Text editor opens more file types: files the system labels non-text — like TypeScript and certificate files — and extensionless shebang scripts now open as text; binary property lists open as editable text and save back in their original format",
+          "Find and replace in the text editor works reliably",
+          "Opening a file that is already open in another split no longer splits the wrong pane — it opens a clean new tab"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.0.5",
     "build": 187,
     "notes": [
