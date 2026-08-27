@@ -1,5 +1,26 @@
 [
   {
+    "version": "1.0.7",
+    "build": 198,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Files open as previews: a single click reuses the current preview tab; a double-click or an edit keeps the file open",
+          "Pin and unpin file tabs from the context menu or the hover button — only pinned tabs are restored when you relaunch",
+          "Split-pane tabs show every pane's icon in the sidebar row; the focused pane is underlined, and clicking an icon focuses it"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "The current-line highlight in the editor gutter no longer covers two rows when the caret sits at the end of a file",
+          "Typing past the last line of a file no longer snaps the scroll — the document's bottom stays where it is instead of jumping to the window"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.0.6",
     "build": 192,
     "notes": [
