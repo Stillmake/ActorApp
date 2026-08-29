@@ -1,5 +1,27 @@
 [
   {
+    "version": "1.1.0",
+    "build": 206,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Markdown syntax highlighting",
+          "Clickable heading outline in the right sidebar",
+          "Bold / Italic / Strikethrough / Inline Code toolbar buttons for markdown",
+          "Editor settings: independent font, size, line spacing, and theme for editor and markdown, plus markdown max width",
+          "Over-scroll past the last markdown line"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Reloading a file no longer leaves a stale dirty indicator"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.0.7",
     "build": 198,
     "notes": [
