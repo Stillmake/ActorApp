@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.1.1",
+    "build": 207,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Markdown now supports syntax highlighting, a clickable heading outline in the right sidebar, formatting toolbar buttons, and independent font and theme settings"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.0",
     "build": 206,
     "notes": [
