@@ -1,5 +1,23 @@
 [
   {
+    "version": "1.1.3",
+    "build": 215,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "The editor status bar shows the file's added and removed lines since HEAD — click to open its diff"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Undo after typing with an IME (Pinyin and the like) now steps back over the whole word, not each keystroke of the spelling"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.2",
     "build": 212,
     "notes": [
