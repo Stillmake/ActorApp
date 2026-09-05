@@ -36,7 +36,12 @@
   color: $text-strong;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  cursor: default;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: $text-strong;
+    }
+  }
 }
 
 .brand-mark {

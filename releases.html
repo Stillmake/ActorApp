@@ -1,0 +1,49 @@
+---
+layout: default
+title: Releases
+description: Notes for each published Actor version, newest first.
+permalink: /releases/
+inner: true
+---
+
+<section class="hero releases-hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">Releases</h1>
+    <p class="hero-meta mono">{{ versions | size }} versions · newest first</p>
+  </div>
+</section>
+
+{% if versions == empty %}
+<section class="release-log">
+  <div class="section-inner">
+    <p class="hero-meta">No releases published.</p>
+  </div>
+</section>
+{% else %}
+<section class="release-log">
+  <div class="section-inner">
+    {% for v in versions %}
+    <article class="release-entry" id="v{{ v.version }}">
+      <header class="release-entry-meta">
+        <h2>{{ v.version }}</h2>
+        <p class="mono">
+          build {{ v.build }}{% if forloop.first %} · Latest{% endif %}
+        </p>
+      </header>
+      <div class="release-entry-body">
+        {% for group in v.notes %}
+        <section class="release-group">
+          <h3>{{ group.title }}</h3>
+          <ul>
+            {% for item in group.items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+        {% endfor %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
