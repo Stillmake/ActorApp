@@ -1,5 +1,24 @@
 [
   {
+    "version": "1.1.4",
+    "build": 223,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Markdown Preview: hide the syntax so the file reads as formatted text",
+          "Underline for markdown (`__text__`), with a toolbar button"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Shrinking a selection no longer leaves a one-pixel highlight seam"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.3",
     "build": 215,
     "notes": [
