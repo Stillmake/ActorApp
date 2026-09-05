@@ -13,48 +13,11 @@
 
 <p align="center">
   <a href="https://github.com/Stillmake/ActorApp/releases/latest">
-    <svg xmlns="http://www.w3.org/2000/svg" width="236" height="48" viewBox="0 0 236 48" role="img" aria-label="Download for macOS">
-      <title>Download for macOS</title>
-      <style>
-        .dl-bg { fill: #1d1d1f; }
-        .dl-fg { fill: #f5f5f7; stroke: #f5f5f7; }
-        @media (prefers-color-scheme: dark) {
-          .dl-bg { fill: #f5f5f7; }
-          .dl-fg { fill: #1d1d1f; stroke: #1d1d1f; }
-        }
-      </style>
-      <rect class="dl-bg" width="236" height="48" rx="24"/>
-      <text class="dl-fg" x="108" y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="600" stroke="none">Download for macOS</text>
-      <g class="dl-fg" fill="none" transform="translate(198 16)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <g>
-          <animateTransform attributeName="transform" type="translate" values="0 0; 0 2; 0 0" dur="1.6s" repeatCount="indefinite"/>
-          <path d="M8 2v12"/>
-          <path d="M3 9l5 5 5-5"/>
-        </g>
-      </g>
-    </svg>
+    <img alt="Download for macOS" src="https://img.shields.io/github/v/release/Stillmake/ActorApp?style=for-the-badge&amp;label=Download%20for%20macOS&amp;color=FF8D28">
   </a>
   &nbsp;
   <a href="https://stillmake.com/actor">
-    <svg xmlns="http://www.w3.org/2000/svg" width="132" height="48" viewBox="0 0 132 48" role="img" aria-label="Website">
-      <title>Website</title>
-      <style>
-        .ws-frame { fill: none; stroke: #1d1d1f; }
-        .ws-label { fill: #1d1d1f; }
-        @media (prefers-color-scheme: dark) {
-          .ws-frame { stroke: #f5f5f7; }
-          .ws-label { fill: #f5f5f7; }
-        }
-      </style>
-      <rect class="ws-frame" x="1" y="1" width="130" height="46" rx="23" stroke-width="1.5"/>
-      <text class="ws-label" x="66" y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="600">Website</text>
-    </svg>
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/Stillmake/ActorApp/releases/latest">
-    <img alt="Latest GitHub release" src="https://img.shields.io/github/v/release/Stillmake/ActorApp?style=flat-square&amp;label=latest&amp;color=FF8D28">
+    <img alt="Website" src="https://img.shields.io/badge/Website-stillmake.com%2Factor-1d1d1f?style=for-the-badge">
   </a>
 </p>
 
