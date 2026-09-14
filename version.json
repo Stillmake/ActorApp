@@ -1,5 +1,19 @@
 [
   {
+    "version": "1.1.5",
+    "build": 227,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Sidebar: added a Focus filter that shows only the current tab group",
+          "Session note: added the ⌥⌘N shortcut",
+          "App Language: added Simplified Chinese and Traditional Chinese"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.4",
     "build": 223,
     "notes": [
