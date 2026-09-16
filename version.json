@@ -1,5 +1,23 @@
 [
   {
+    "version": "1.1.6",
+    "build": 230,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Markdown lists: Enter starts the next item; Tab / Shift-Tab indent"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Markdown: Find and Replace works (⌘F / ⌥⌘F)"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.5",
     "build": 227,
     "notes": [
