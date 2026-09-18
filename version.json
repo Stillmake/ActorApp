@@ -1,36 +1,5 @@
 [
   {
-    "version": "1.1.8",
-    "build": 238,
-    "notes": [
-      {
-        "title": "Bug Fixes",
-        "items": [
-          "Fix terminals sometimes going blank or the wrong size after a window is reopened"
-        ]
-      }
-    ]
-  },
-  {
-    "version": "1.1.7",
-    "build": 235,
-    "notes": [
-      {
-        "title": "New Features",
-        "items": [
-          "Quit and close confirm before losing unsaved changes, running jobs, or notes",
-          "Sidebar: click Focus again to switch back to All"
-        ]
-      },
-      {
-        "title": "Bug Fixes",
-        "items": [
-          "Fix blank terminals after closing and reopening a window"
-        ]
-      }
-    ]
-  },
-  {
     "version": "1.1.6",
     "build": 230,
     "notes": [
