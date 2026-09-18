@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.1.8",
+    "build": 238,
+    "notes": [
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Fix terminals sometimes going blank or the wrong size after a window is reopened"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.7",
     "build": 235,
     "notes": [
