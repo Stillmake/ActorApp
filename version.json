@@ -1,5 +1,25 @@
 [
   {
+    "version": "1.1.9",
+    "build": 240,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Quit and close confirm before losing unsaved changes, running jobs, or notes",
+          "Sidebar: click Focus again to switch back to All"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Fix blank terminals after closing and reopening a window",
+          "Fix terminals sometimes going blank or the wrong size after a window is reopened"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.6",
     "build": 230,
     "notes": [
