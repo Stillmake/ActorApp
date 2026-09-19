@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.1.10",
+    "build": 242,
+    "notes": [
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Terminal apps now see xterm-ghostty instead of xterm-256color"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.9",
     "build": 240,
     "notes": [
