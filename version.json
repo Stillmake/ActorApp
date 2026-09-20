@@ -1,5 +1,23 @@
 [
   {
+    "version": "1.1.11",
+    "build": 244,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Session note: Send to Session pastes the note into the terminal and clears it"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Fix missing menu icons on macOS 27"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.10",
     "build": 242,
     "notes": [
