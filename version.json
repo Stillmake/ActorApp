@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.1.14",
+    "build": 251,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Info panel: Notifications fold to the three newest"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.13",
     "build": 249,
     "notes": [
