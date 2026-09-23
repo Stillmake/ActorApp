@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.1.13",
+    "build": 249,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Info panel: Jobs is now a table with a header row"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.12",
     "build": 247,
     "notes": [
