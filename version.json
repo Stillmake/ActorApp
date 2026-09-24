@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.1.15",
+    "build": 254,
+    "notes": [
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Fix missing agent icons in the sidebar"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.14",
     "build": 251,
     "notes": [
