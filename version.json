@@ -1,5 +1,23 @@
 [
   {
+    "version": "1.1.16",
+    "build": 256,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Info panel: added a bar with Send Keys and Clear Screen"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Fix Clear Screen typing ^L into a running program"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.15",
     "build": 254,
     "notes": [
