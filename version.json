@@ -1,5 +1,18 @@
 [
   {
+    "version": "1.2.0",
+    "build": 260,
+    "notes": [
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Hidden files could not be shown in Files",
+          "Markdown front matter dates appeared as headings"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.1.16",
     "build": 256,
     "notes": [
