@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.2.1",
+    "build": 262,
+    "notes": [
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Markdown editor caret landed away from the click"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.2.0",
     "build": 260,
     "notes": [
