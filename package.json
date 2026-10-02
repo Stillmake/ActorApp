@@ -4,14 +4,14 @@
   "private": true,
   "description": "Actor static website",
   "scripts": {
-    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "clean": "rm -rf dist",
     "build:css": "sass --load-path=_sass assets/main.scss dist/assets/main.css --style=compressed --no-source-map",
     "build:site": "eleventy",
-    "build": "npm run clean && npm run build:css && npm run build:site",
-    "fetch:releases": "node scripts/fetch-releases.mjs",
-    "dev": "node scripts/dev.mjs",
-    "deploy": "npm run build && npx wrangler deploy -c wrangler.jsonc",
-    "deploy:preview": "npm run build && npx wrangler versions upload -c wrangler.jsonc"
+    "build": "bun run clean && bun run build:css && bun run build:site",
+    "fetch:releases": "bun scripts/fetch-releases.mjs",
+    "dev": "bun scripts/dev.mjs",
+    "deploy": "bun run build && bunx wrangler deploy -c wrangler.jsonc",
+    "deploy:preview": "bun run build && bunx wrangler versions upload -c wrangler.jsonc"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",

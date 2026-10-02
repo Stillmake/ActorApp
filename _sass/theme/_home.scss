@@ -179,13 +179,84 @@ footer[id] {
 }
 
 .product-shot {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 1.79cqw; /* 20px at the 1176px container, scales with the shot */
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.18cqw; /* ~14px at the 1176px container, scales with the shot */
   border: 1px solid $border;
   box-shadow: $shadow-code;
   background: $bg-sunken;
+}
+
+/* Crossfade: the active shot fades in on top; the outgoing one hides only once fully covered,
+   so the backdrop never shows through mid-fade. Apple's ease-out curve. */
+.product-track {
+  display: grid;
+
+  img {
+    grid-area: 1 / 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0s 0.8s;
+  }
+
+  img.is-active {
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.8s cubic-bezier(0.28, 0.11, 0.32, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    img, img.is-active { transition: none; }
+  }
+}
+
+/* Bottom center, 8px above the shot's edge. Each button is a 26px hit target around an 8px dot.
+   Buttons overlap by 9px so every gap is 9px: dot to dot, and dot to pill on all sides (each end
+   dot is concentric with its 13px end cap). Pill 43×26. */
+.product-dots {
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(12px) saturate(1.6);
+  -webkit-backdrop-filter: blur(12px) saturate(1.6);
+
+  button {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    & + button { margin-left: -9px; }
+
+    &::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      transition: background-color 0.3s;
+    }
+
+    &[aria-current]::before { background: #fff; }
+    &:hover:not([aria-current])::before { background: rgba(255, 255, 255, 0.7); }
+
+    &:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: -4px;
+      border-radius: 50%;
+    }
+  }
 }
 
 /* ---------- Features ---------- */

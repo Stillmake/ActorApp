@@ -7,7 +7,7 @@ module.exports = function (eleventyConfig) {
   ["_headers", "favicon.svg", "site.webmanifest", "version.json"].forEach(
     (path) => eleventyConfig.addPassthroughCopy(path)
   );
-  eleventyConfig.addPassthroughCopy({ "assets/app.jpg": "assets/app.jpg" });
+  eleventyConfig.addPassthroughCopy({ "assets/shot-*.jpg": "assets" });
   eleventyConfig.addPassthroughCopy({ "assets/og.jpg": "assets/og.jpg" });
 
   eleventyConfig.addFilter("filesize", (bytes) => {

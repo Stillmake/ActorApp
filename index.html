@@ -25,16 +25,43 @@ description: A Ghostty-powered terminal for macOS, with a hierarchical sidebar. 
 </section>
 
 <figure class="product">
-  <img
-    class="product-shot"
-    src="{{ site.base }}/assets/app.jpg"
-    width="2400"
-    height="1558"
-    alt="Actor with a session sidebar, Ghostty prompt, and inspector showing status, jobs, and a session note."
-    decoding="async"
-    fetchpriority="high"
-  >
+  <div class="product-shot">
+    <div class="product-track">
+      <img class="is-active" src="{{ site.base }}/assets/shot-1.jpg" width="2400" height="1558" alt="Actor with a session sidebar, Ghostty prompt, and inspector." decoding="async" fetchpriority="high">
+      <img src="{{ site.base }}/assets/shot-2.jpg" width="2400" height="1558" alt="Actor screenshot." decoding="async">
+    </div>
+    <div class="product-dots">
+      <button type="button" aria-label="Show screenshot 1" aria-current="true"></button>
+      <button type="button" aria-label="Show screenshot 2"></button>
+    </div>
+  </div>
 </figure>
+
+<script>
+  (function () {
+    var shots = document.querySelectorAll(".product-track img");
+    var dots = document.querySelectorAll(".product-dots button");
+    var autoplay = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var current = 0;
+    var timer;
+
+    function show(index) {
+      shots[current].classList.remove("is-active");
+      dots[current].removeAttribute("aria-current");
+      current = index;
+      shots[current].classList.add("is-active");
+      dots[current].setAttribute("aria-current", "true");
+      clearTimeout(timer);
+      // 0.8s fade + 5s hold
+      if (autoplay) timer = setTimeout(function () { show((current + 1) % shots.length); }, 5800);
+    }
+
+    dots.forEach(function (dot, index) {
+      dot.addEventListener("click", function () { if (index !== current) show(index); });
+    });
+    show(0);
+  })();
+</script>
 
 <section class="features" id="features">
   <div class="section-inner">

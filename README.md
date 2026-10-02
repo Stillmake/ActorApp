@@ -27,7 +27,7 @@
 
 <p align="center">
   <a href="https://stillmake.com/actor">
-    <img src="assets/app.jpg" alt="Actor with a session sidebar, Ghostty prompt, and inspector" width="920">
+    <img src="assets/shot-1.jpg" alt="Actor with a session sidebar, Ghostty prompt, and inspector" width="920">
   </a>
 </p>
 
