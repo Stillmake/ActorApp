@@ -1,5 +1,19 @@
 [
   {
+    "version": "1.2.2",
+    "build": 271,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Open PDFs in a tab, with page jump and zoom",
+          "Play video and audio files in a tab",
+          "Sidebar: Attention keeps every group expanded"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.2.1",
     "build": 262,
     "notes": [
