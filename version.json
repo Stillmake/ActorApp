@@ -1,5 +1,19 @@
 [
   {
+    "version": "1.3.1",
+    "build": 279,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Open In: add any app and pin up to two to the toolbar",
+          "Status bar: click the branch to copy its name; click the change count to open Git changes",
+          "Notifications show the message first, with two lines when expanded"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.3",
     "build": 275,
     "notes": [
