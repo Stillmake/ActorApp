@@ -1,5 +1,24 @@
 [
   {
+    "version": "1.3.2",
+    "build": 285,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Syntax highlighting for JSON and Swift files",
+          "Markdown highlighting keeps up in long documents"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Line number gutter lost its background when scrolling past the top or bottom"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.3.1",
     "build": 279,
     "notes": [
