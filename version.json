@@ -1,5 +1,23 @@
 [
   {
+    "version": "1.4.2",
+    "build": 299,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Clear the session note with one click"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Info tab kept using CPU while open"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.4.1",
     "build": 295,
     "notes": [
