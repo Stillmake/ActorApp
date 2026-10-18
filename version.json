@@ -1,5 +1,18 @@
 [
   {
+    "version": "1.4.1",
+    "build": 295,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Command buttons show progress while running",
+          "Reorder command buttons from the right-click menu"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.4.0",
     "build": 292,
     "notes": [
