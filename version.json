@@ -1,5 +1,27 @@
 [
   {
+    "version": "2.0",
+    "build": 309,
+    "notes": [
+      {
+        "title": "New Features",
+        "items": [
+          "Voice input into the terminal (macOS 26)",
+          "Dictate with a speech API",
+          "Clean up dictation with an LLM",
+          "Customize the sidebar",
+          "Pin a command to all projects"
+        ]
+      },
+      {
+        "title": "Bug Fixes",
+        "items": [
+          "Command ran twice on double click"
+        ]
+      }
+    ]
+  },
+  {
     "version": "1.4.2",
     "build": 299,
     "notes": [
