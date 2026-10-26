@@ -3,6 +3,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add(".agents/**");
   eleventyConfig.ignores.add("scripts/**");
   eleventyConfig.ignores.add("dist/**");
+  eleventyConfig.ignores.add(".releases/**");
 
   ["_headers", "favicon.svg", "site.webmanifest", "version.json"].forEach(
     (path) => eleventyConfig.addPassthroughCopy(path)

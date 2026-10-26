@@ -1,8 +1,11 @@
 name: Deploy
 
+# A release changes Stillmake/releases, not this repo; scripts/release.sh in
+# ActorTerm dispatches this workflow once the feed is live.
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -12,9 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: Stillmake/releases
+          path: .releases
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - run: bun run build
+        env:
+          RELEASES_DIR: .releases
       - run: bunx wrangler deploy -c wrangler.jsonc
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
