@@ -9,7 +9,6 @@
     "build:site": "eleventy",
     "build": "bun run clean && bun run build:css && bun run build:site",
     "fetch:releases": "bun scripts/fetch-releases.mjs",
-    "feed": "node scripts/feed.mjs",
     "dev": "bun scripts/dev.mjs",
     "deploy": "bun run build && bunx wrangler deploy -c wrangler.jsonc",
     "deploy:preview": "bun run build && bunx wrangler versions upload -c wrangler.jsonc"

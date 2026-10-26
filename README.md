@@ -12,8 +12,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Stillmake/ActorApp/releases/latest">
-    <img alt="Download for macOS" src="https://img.shields.io/github/v/release/Stillmake/ActorApp?style=for-the-badge&amp;label=Download%20for%20macOS&amp;color=FF8D28">
+  <a href="https://stillmake.com/actor">
+    <img alt="Download for macOS" src="https://img.shields.io/github/v/release/Stillmake/releases?filter=actor-*&amp;style=for-the-badge&amp;label=Download%20for%20macOS&amp;color=FF8D28">
   </a>
   &nbsp;
   <a href="https://stillmake.com/actor">
@@ -36,5 +36,5 @@
   ·
   <a href="https://stillmake.com/actor/releases/">release notes</a>
   ·
-  <a href="https://github.com/Stillmake/ActorApp/releases">GitHub Releases</a>
+  <a href="https://github.com/Stillmake/releases/releases">GitHub Releases</a>
 </p>
