@@ -5,7 +5,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("dist/**");
   eleventyConfig.ignores.add(".releases/**");
 
-  ["_headers", "favicon.svg", "site.webmanifest", "version.json"].forEach(
+  ["_headers", "favicon.svg", "site.webmanifest"].forEach(
     (path) => eleventyConfig.addPassthroughCopy(path)
   );
   eleventyConfig.addPassthroughCopy({ "assets/shot-*.jpg": "assets" });
